@@ -7,8 +7,9 @@ function Form (couleur,epaisseur){
 };
 
 function Drawing (){
-        var listform = [];
+        var forms = new Array();
 }
+
 //Un rectangle possède des coordonnées de son point haut-gauche, une largeur et une hauteur.
 function Rectangle (x,y,largeur,hauteur){
     Form.call(x,y,largeur,hauteur,this);
