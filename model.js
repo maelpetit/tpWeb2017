@@ -29,3 +29,4 @@ function Line(X0, Y0, X1, Y1, color, width) {
     var y1 = Y1;
 };
 Line.prototype = new Form();
+razrjaimjm
