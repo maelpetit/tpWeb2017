@@ -3,40 +3,40 @@
 // L'interacteur viendra dans un second temps donc ne vous en souciez pas au départ.
 function DnD(canvas, interactor) {
   // Définir ici les attributs de la 'classe'
-  var dragging = false;
-  var x0 = 0;
-  var y0 = 0;
-  var x1 = 0;
-  var y1 = 0;
+    this.dragging = false;
+    this.x0 = 0;
+    this.y0 = 0;
+    this.x1 = 0;
+    this.y1 = 0;
 
 	// Developper les 3 fonctions gérant les événements
   DnD.prototype.beginDrag = function (evt){
     var res = getMousePosition(canvas, evt);
-    x0 = res.x;
-    y0 = res.y;
-    dragging = true;
-    console.log("beginDrag " + x0 + " " + y0);
+    this.x0 = res.x;
+    this.y0 = res.y;
+    this.dragging = true;
+    console.log("beginDrag " + this.x0 + " " + this.y0);
   }
 
   DnD.prototype.drag = function (evt){
-    if(dragging){
+    if(this.dragging){
       setEndCoords(evt);
-      console.log("drag " + x1 + " " + y1);
+      console.log("drag " + this.x1 + " " + this.y1);
     }
   }
 
   DnD.prototype.drop = function (evt){
-    if(dragging){
+    if(this.dragging){
       setEndCoords(evt);
-      dragging = !dragging;
+      this.dragging = !this.dragging;
       console.log("drop " + x1 + " " + y1);
     }
   }
 
   function setEndCoords(evt){
     var res = getMousePosition(canvas, evt);
-    x1 = res.x;
-    y1 = res.y;
+    this.x1 = res.x;
+    this.y1 = res.y;
   }
 
   // Associer les fonctions précédentes aux évènements du canvas.
